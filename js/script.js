@@ -1,6 +1,0 @@
-console.log("Test");
-
-
-// Fetch //
-
-
