@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(156, 189, 156);
+}
+
+#list{
+    list-style: none;
+    align-items: flex-start;
+    align-self: center;
+}
