@@ -9,25 +9,39 @@
 <body>
     <h1>"Green Media Production" - a calculator</h1>
 
-    <hr>
+    <br>
     <article>Green Media Production is an upcoming topic in the industry and has become more important for companies, especially in public broadcasting.</article>
     <br>
     <article> One way or another, most of them do not know how to calculate their carbon footprint. This calculator is not complete, but it
-        gives a little insight of what amount of CO2 to expect from a film set.     
+        gives a little insight of what amount of CO2 to expect from a film set. It may be higher depending on the production and their needs.    
     </article>
 
 
-    <h1>Auswahl</h1>
+    <h1>Parameter</h1>
 
     <ul title="Liste" id="list">
-        <li>
+       <!-- <li>
             <img src="" alt="Reisekilometer">
             <p>Beschreibung</p>
             <form name="form1" id="form1">
                 Kilometer: <select name="travel" id="travel">
                     <option value="" selected="selected">Select subject</option>
-                  </select>
+                </select>
         </li>
+
+        -->
+
+        <li>
+            <h2>Hotelübernachtung</h2>
+            <label>Anzahl Zimmer:</label><br>
+            <input type="number" id="countRooms" value="0" min="0" max="10"><br>
+            <label>Anzahl Nächte:</label><br>
+            <input type="number" id="countNights" value="0" min="0" max="10"><br>
+            <p id="hotelco2"></p>
+        
+        </li>
+   
+        <!--
         <li>
             <img src="" alt="Verpflegung">
             <p>Beschreibung</p>
@@ -53,10 +67,32 @@
                   </select>
         </li>
 
+        -->
+
     </ul>
 
+
+    <p id="outputText"></p>
+
+    <div id="outputDiv"></div>
     
-    <div id="app"></div>
+
+
+
+
+    <article> One way or another, most of them do not know how to calculate their carbon footprint. This calculator is not complete, but it
+        gives a little insight of what amount of CO2 to expect from a film set. It may be higher depending on the production and their needs.    
+    </article>
+
+
+
+
+
+    <footer>
+        <p>Green Media Production</p>
+        <p>© 2023</p>
+        <p>This website was made by <a href="https://www.digezz.ch/author/nico-caccivio/">Nico Caccivio</a>. All rights reserved.</p>
+    </footer>
 
 
     <script src="js/scripts.js"></script>

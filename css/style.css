@@ -1,5 +1,11 @@
 body{
     background-color: rgb(156, 189, 156);
+    font-family: 'Courier New', Courier, monospace
+}
+
+h1{
+    font-size: 50px;
+    font-family:'Courier New', Courier, monospace
 }
 
 #list{
