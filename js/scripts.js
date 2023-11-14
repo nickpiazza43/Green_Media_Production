@@ -25,13 +25,6 @@ displayContentBasedOnNumber(exampleNumber);
 
 
 
-
-
-
-
-
-
-
 // Endpoint URL
 const apiUrl = 'https://beta4.api.climatiq.io/estimate';
 
@@ -43,6 +36,10 @@ const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${apiKey}`
 };
+
+
+
+
 
 
 
@@ -89,7 +86,7 @@ function calculateHotel() {
 
             showDataHotel(data);
 
-            //showTotalCount();
+            showTotalCount();
 
         })
         .catch(error => {
@@ -132,169 +129,15 @@ function showDataHotel(dataHotel){
 };
 
 
-/*
-
 function showTotalCount() {
 
-    const countHotel = document.getElementById("hotelco2");
-    countHotel.value 
-    //const countHotel = document.getElementById("hotelco2");
-    //const countHotel = document.getElementById("hotelco2");
-    //const countHotel = document.getElementById("hotelco2");
-
-    totalCount.valueinnerHTML = '';
-
-    let totalCount = 0;
-
-    totalCount = countHotel;
-
-    console.log(totalCount);  
+    let countTotal = document.getElementById("hotelco2").innerText;
+    console.log(countTotal);
     
-};*/
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-let countHotel = 2;
-
-const countRoomsInput = document.getElementById('countRooms');
-const countNightsInput = document.getElementById('countNights');
-
-// Event Listener für Änderungen in den Input-Feldern
-countRoomsInput.addEventListener('input', calculateHotel);
-countNightsInput.addEventListener('input', calculateHotel);
-
-// Funktion zum Berechnen und Anzeigen des Gesamtbetrags
-function calculateHotel() {
-    // Lesen der Werte aus den Input-Feldern und Umwandeln in Zahlen
-    const countRooms = parseFloat(countRoomsInput.value);
-    const countNights = parseFloat(countNightsInput.value);
-
-    // Überprüfen, ob die eingegebenen Werte gültige Zahlen sind
-    if (!isNaN(countRooms) && !isNaN(countNights)) {
-        // Multiplizieren der Werte und Anzeigen des Ergebnisses
-        countHotel = countRooms * countNights;
-
-        console.log('Gesamtbetrag:', countHotel);
-
-        // Aktualisieren von postDataHotel mit dem neuen Wert
-        updatePostDataHotel(countHotel);
-
-        // Hier könntest du postDataHotel verwenden, z.B. für einen Fetch-Aufruf
-        // fetch(apiUrl, { method: 'POST', body: JSON.stringify(postDataHotel), ... });
-    } else {
-        console.log('Ungültige Eingabe. Bitte geben Sie gültige Zahlen ein.');
-    }
-}
-
-// Funktion zum Aktualisieren von postDataHotel
-function updatePostDataHotel(countHotel) {
-    postDataHotel.parameters.number = countHotel;
-}
-
-// Sample data for POST (adjust this to the actual data structure required by the API)
-
-const postDataHotel = {
-  
-    "emission_factor": {
-		"activity_id": "accommodation_type_hotel_stay",
-		"source": "BEIS",
-		"region": "CH",
-		"year": 2023,
-		"source_lca_activity": "unknown",
-		"data_version": "^0"
-	},
-	"parameters": {
-		"number": countHotel
-	}
-
-}
-
-
-// Fetch DataHotel from the API
-fetch(apiUrl, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(postDataHotel)  // Convert the JavaScript object to a JSON string
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-})
-.then(data => {
-    
-    // Do something with the data
-
-    console.log(data);
-
-    showDataHotel(data); 
-
-})
-.catch(error => {
-    console.error('There was a problem with the fetch:', error.message);
-});
-
-
-function showDataHotel(dataHotel){
-
-    let hotelc02 = document.createElement('h1');
-    hotelc02.innerHTML = dataHotel.co2e;
-    console.log(dataHotel.co2e);
-    hotelc02.classList.add("hotelc02");
-    document.getElementById("list").appendChild(hotelc02);
-
+    //let countEquipment = dataEquipment.co2e;
+    //console.log(countHotel);
 };
 
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-/*
 
 const postDataEquipment = {
 
@@ -348,87 +191,4 @@ const postDataTravelTrain = {
 		"distance": 100,
 		"distance_unit": "km"
 	}
-}
-    
-
-
-
-// Fetch DataEquipment from the API
-fetch(apiUrl, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(postDataEquipment)  // Convert the JavaScript object to a JSON string
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-})
-.then(data => {
-    
-    // Do something with the data
-
-    console.log(data);
-
-})
-.catch(error => {
-    console.error('There was a problem with the fetch:', error.message);
-});
-
-
-
-
-
-// Fetch DataTravelDiesel from the API
-fetch(apiUrl, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(postDataTravelDiesel)  // Convert the JavaScript object to a JSON string
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-})
-.then(data => {
-    
-    // Do something with the data
-
-    console.log(data);
-
-})
-.catch(error => {
-    console.error('There was a problem with the fetch:', error.message);
-});
-
-
-
-
-
-// Fetch DataTravelTrain from the API
-fetch(apiUrl, {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(postDataTravelTrain)  // Convert the JavaScript object to a JSON string
-})
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-})
-.then(data => {
-    
-    // Do something with the data
-
-    console.log(data);
-
-})
-.catch(error => {
-    console.error('There was a problem with the fetch:', error.message);
-});
-
-
-*/
+} 
